@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Cargat React -->
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <title>ReactApp</title>
+</head>
+<body>
+    <div id="root"></div>
+    <div id="root2"></div>
+    <div id="root3"></div>
+    <script type="text/babel">
+        const nombre= 'ESTEFANIA';
+        const nombre2= 'PERLA';
+        const edad= 23;
+        const divRoot= document.querySelector('#root');
+        const divRoot2= document.querySelector('#root2');
+        const divRoot3= document.querySelector('#root3');
+        const h1Tag= <h1> HOLA MUNDO SOY {nombre}, MI EDAD ES {edad} AÑOS</h1>; 
+        const h2Tag= <h1> ESTUDIANTE DE INGENIERIA INFORMATICA </h1>;
+        const h3Tag= <h1> MI PERRITA SE LLAMA {nombre2} </h1>;
+        ReactDOM.render(h1Tag,  divRoot);
+        ReactDOM.render(h2Tag, divRoot2);
+        ReactDOM.render(h3Tag, divRoot3);
+    </script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+/* styles.css */
+
+html, body{
+    background-color: #13E7F1;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.3rem;
+    padding: 70px;
+}
+
+button {
+    padding: 15px;
+font-size: 1.3rem;
+color: red;
+margin-right: 5px;
+}
