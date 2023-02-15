@@ -1,10 +1,14 @@
-import { useFetch } from "../hooks/useFetch";
+import { useFetch, useCounter} from "../hooks";
 
 export const MultipleCustomHooks = () => {
+const {counter, increment} = useCounter(1);
+    const { data, isLoading, hasError } = useFetch(`https://pokeapi.co/api/v2/pokemon/${counter}`);
+    console.log (data)
+   
+    console.log(counter)
 
-    const { data, isLoading, hasError } = useFetch('https://pokeapi.co/api/v2/pokemon/');
 
-    //si carga ejecuta el siguiente return, sino se queda en el cargando... 
+    //si carga ejecuta el siguiente return, sino se queda en el cargando...
     // if (isLoading) {
     //     return (
     //         <h1> Cargando... </h1>
@@ -13,7 +17,7 @@ export const MultipleCustomHooks = () => {
 
     return (
         <>
-            <h1>BreakingBad Quotes</h1>
+            <h1>The Pokémons</h1>
             <hr />
 
             {
@@ -26,18 +30,24 @@ export const MultipleCustomHooks = () => {
                         </div>
                     )
                     :
-                    data.results.map(pokemon =>
-                        <blockquote key={pokemon.name} className="blockquote text-end">
-                            <p className="m-2">{pokemon.name}</p>
-                            <a href={pokemon.url} className="btn btn-primary">Ir</a>
+                    
+                        <blockquote className="blockquote text-end">
+                            <p className="m-2">{data.species.name}</p>
+                            
+                            <a href={data.species.url} className="btn btn-primary">Ir</a>
+                            <img src={data.sprites.front_default} alt={data.species.name} />
                             <footer className="blockquote-footer mt-2">Pokemon</footer>
                         </blockquote>
-                    )
+                    
             }
 
 
-<button className="btn btn-primary" onClick={}>
+<button 
+disabled={isLoading} 
+className="btn btn-primary" 
+onClick={()=>increment()}>
     Next Quotes
+    
 </button>
 
 
